@@ -1,4 +1,4 @@
-package tn.windata.gestibank.model ; 
+package tn.windata.dto ; 
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "client_potentiel")
-public class ClientPotentiel implements Serializable {
+public class ClientPotentielDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,7 @@ public class ClientPotentiel implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private DemandesOuvertures clientPotentiel;
+    private DemandesOuverturesDTO clientPotentiel;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -55,7 +55,7 @@ public class ClientPotentiel implements Serializable {
         return nom;
     }
 
-    public ClientPotentiel nom(String nom) {
+    public ClientPotentielDTO nom(String nom) {
         this.nom = nom;
         return this;
     }
@@ -68,7 +68,7 @@ public class ClientPotentiel implements Serializable {
         return prenom;
     }
 
-    public ClientPotentiel prenom(String prenom) {
+    public ClientPotentielDTO prenom(String prenom) {
         this.prenom = prenom;
         return this;
     }
@@ -81,7 +81,7 @@ public class ClientPotentiel implements Serializable {
         return email;
     }
 
-    public ClientPotentiel email(String email) {
+    public ClientPotentielDTO email(String email) {
         this.email = email;
         return this;
     }
@@ -94,7 +94,7 @@ public class ClientPotentiel implements Serializable {
         return telephone;
     }
 
-    public ClientPotentiel telephone(String telephone) {
+    public ClientPotentielDTO telephone(String telephone) {
         this.telephone = telephone;
         return this;
     }
@@ -107,7 +107,7 @@ public class ClientPotentiel implements Serializable {
         return revenusMens;
     }
 
-    public ClientPotentiel revenusMens(String revenusMens) {
+    public ClientPotentielDTO revenusMens(String revenusMens) {
         this.revenusMens = revenusMens;
         return this;
     }
@@ -120,7 +120,7 @@ public class ClientPotentiel implements Serializable {
         return piecesJustif;
     }
 
-    public ClientPotentiel piecesJustif(String piecesJustif) {
+    public ClientPotentielDTO piecesJustif(String piecesJustif) {
         this.piecesJustif = piecesJustif;
         return this;
     }
@@ -129,16 +129,16 @@ public class ClientPotentiel implements Serializable {
         this.piecesJustif = piecesJustif;
     }
 
-    public DemandesOuvertures getClientPotentiel() {
+    public DemandesOuverturesDTO getClientPotentiel() {
         return clientPotentiel;
     }
 
-    public ClientPotentiel clientPotentiel(DemandesOuvertures demandesOuvertures) {
+    public ClientPotentielDTO clientPotentiel(DemandesOuverturesDTO demandesOuvertures) {
         this.clientPotentiel = demandesOuvertures;
         return this;
     }
 
-    public void setClientPotentiel(DemandesOuvertures demandesOuvertures) {
+    public void setClientPotentiel(DemandesOuverturesDTO demandesOuvertures) {
         this.clientPotentiel = demandesOuvertures;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
@@ -148,10 +148,10 @@ public class ClientPotentiel implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof ClientPotentiel)) {
+        if (!(o instanceof ClientPotentielDTO)) {
             return false;
         }
-        return id != null && id.equals(((ClientPotentiel) o).id);
+        return id != null && id.equals(((ClientPotentielDTO) o).id);
     }
 
     @Override

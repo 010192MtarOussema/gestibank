@@ -1,4 +1,4 @@
-package tn.windata.gestibank.model ; 
+package tn.windata.dto ; 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
@@ -9,27 +9,20 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * A Transaction.
+ * A Notification.
  */
-@Entity
-@Table(name = "transaction")
-public class Transaction implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+public class NotificationDTO implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
-    @Column(name = "date")
     private String date;
 
-    @Column(name = "message")
     private String message;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "transactions", allowSetters = true)
-    private Compte compte;
+
+    private CompteDTO compte;
 
     public Long getId() {
         return id;
@@ -43,7 +36,7 @@ public class Transaction implements Serializable {
         return date;
     }
 
-    public Transaction date(String date) {
+    public NotificationDTO date(String date) {
         this.date = date;
         return this;
     }
@@ -56,7 +49,7 @@ public class Transaction implements Serializable {
         return message;
     }
 
-    public Transaction message(String message) {
+    public NotificationDTO message(String message) {
         this.message = message;
         return this;
     }
@@ -65,16 +58,16 @@ public class Transaction implements Serializable {
         this.message = message;
     }
 
-    public Compte getCompte() {
+    public CompteDTO getCompte() {
         return compte;
     }
 
-    public Transaction compte(Compte compte) {
+    public NotificationDTO compte(CompteDTO compte) {
         this.compte = compte;
         return this;
     }
 
-    public void setCompte(Compte compte) {
+    public void setCompte(CompteDTO compte) {
         this.compte = compte;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
@@ -84,10 +77,10 @@ public class Transaction implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Transaction)) {
+        if (!(o instanceof NotificationDTO)) {
             return false;
         }
-        return id != null && id.equals(((Transaction) o).id);
+        return id != null && id.equals(((NotificationDTO) o).id);
     }
 
     @Override
@@ -98,7 +91,7 @@ public class Transaction implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "Transaction{" +
+        return "Notification{" +
             "id=" + getId() +
             ", date='" + getDate() + "'" +
             ", message='" + getMessage() + "'" +
