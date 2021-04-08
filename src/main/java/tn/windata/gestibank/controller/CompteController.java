@@ -21,7 +21,7 @@ public class CompteController {
 
 	@GetMapping("/comptes")
 	public ResponseEntity<List<CompteDTO>> getAllComptes() {
-		return new ResponseEntity<>(compteServie.getAllUsers(), HttpStatus.OK);
+		return new ResponseEntity<>(compteServie.getAllComptes(), HttpStatus.OK);
 	}
 
 }
