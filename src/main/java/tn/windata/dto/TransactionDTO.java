@@ -1,4 +1,4 @@
-package tn.windata.gestibank.model ; 
+package tn.windata.dto ; 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
@@ -11,25 +11,20 @@ import java.io.Serializable;
 /**
  * A Transaction.
  */
-@Entity
-@Table(name = "transaction")
-public class Transaction implements Serializable {
+
+public class TransactionDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
-    @Column(name = "date")
     private String date;
 
-    @Column(name = "message")
     private String message;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "transactions", allowSetters = true)
-    private Compte compte;
+
+    private CompteDTO compte;
 
     public Long getId() {
         return id;
@@ -43,7 +38,7 @@ public class Transaction implements Serializable {
         return date;
     }
 
-    public Transaction date(String date) {
+    public TransactionDTO date(String date) {
         this.date = date;
         return this;
     }
@@ -56,7 +51,7 @@ public class Transaction implements Serializable {
         return message;
     }
 
-    public Transaction message(String message) {
+    public TransactionDTO message(String message) {
         this.message = message;
         return this;
     }
@@ -65,16 +60,16 @@ public class Transaction implements Serializable {
         this.message = message;
     }
 
-    public Compte getCompte() {
+    public CompteDTO getCompte() {
         return compte;
     }
 
-    public Transaction compte(Compte compte) {
+    public TransactionDTO compte(CompteDTO compte) {
         this.compte = compte;
         return this;
     }
 
-    public void setCompte(Compte compte) {
+    public void setCompte(CompteDTO compte) {
         this.compte = compte;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
@@ -84,10 +79,10 @@ public class Transaction implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Transaction)) {
+        if (!(o instanceof TransactionDTO)) {
             return false;
         }
-        return id != null && id.equals(((Transaction) o).id);
+        return id != null && id.equals(((TransactionDTO) o).id);
     }
 
     @Override

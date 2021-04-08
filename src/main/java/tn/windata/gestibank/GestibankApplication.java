@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-//@EntityScan("tn.windata.gestibank.model")
 public class GestibankApplication {
 
 	public static void main(String[] args) {
